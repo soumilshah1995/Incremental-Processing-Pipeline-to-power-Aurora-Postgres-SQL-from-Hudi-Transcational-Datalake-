@@ -1,0 +1,72 @@
+
+An easy-to-use Python utility class for accessing incremental data from Hudi Data Lakes
+
+
+
+* One of the key features of Hudi is its support for incremental data processing. This means that Hudi can efficiently process only the changes that have occurred since the last time data was processed, rather than processing the entire dataset every time. This can result in significant performance improvements and reduced processing times.
+
+* Let's move on to learning how to use Hudi Incremental Data Processing to power downstream systems. Search applications like elastic search, relational databases, and non-relational databases are examples of downstream systems.
+
+* An easy-to-use Python utility class for accessing incremental data from Hudi Data Lakes. Code logic can be shown in below flow chart
+
+### Please fork repository and submit a merge request if you notice any flaws or ideas to improve the template.
+
+![sa drawio](https://user-images.githubusercontent.com/39345855/221435952-76d4c80e-1043-40fc-b5d7-42f042e7181c.png)
+
+# Demo
+
+####  performing some inserts
+![image](https://user-images.githubusercontent.com/39345855/221436178-61e7b768-6563-4ef4-9a53-2e804cb2097e.png)
+
+#### Running template
+![image](https://user-images.githubusercontent.com/39345855/221436220-7153fae1-58cf-4723-9c03-111d2ff0d214.png)
+
+#### Meta Data File on S3
+![image](https://user-images.githubusercontent.com/39345855/221436234-d50c2c76-aeb7-42fd-b3d4-9a41dfd02b24.png)
+
+#### Meta Data File on S3
+![image](https://user-images.githubusercontent.com/39345855/221436316-7ab9ef1c-7ec4-415c-839c-884c1db4fd15.png)
+
+####  performing one moore inserts
+![image](https://user-images.githubusercontent.com/39345855/221436341-7f26521f-1d35-43e9-9a7a-e1e3930d31bc.png)
+
+#### Running template
+![image](https://user-images.githubusercontent.com/39345855/221436363-c0a0b17c-6ec1-4a5c-a46c-d73fa0bdf8db.png)
+
+
+
+SELECT
+    l.cycle_id,
+    l.budget,
+    l.budget_spent,
+    l.date_end,
+    m.cycle_id,
+    m.media_cycle_id,
+    m.spend,
+    m.default_bid
+FROM landing.cycle_context_cycle as l
+inner join landing.advertising_context_media_cycle as m on
+    l.cycle_id = m.cycle_id
+GROUP BY l.cycle_id,
+ l.budget,
+ l.budget_spent,
+ l.date_end,
+ m.cycle_id,
+ m.media_cycle_id,
+ m.spend,
+ m.default_bid
+ORDER BY l.budget_spent DESC
+
+
+select
+ l.cycle_id,
+ l.budget,
+ l.budget_spent,
+ l.campaign_ref,
+ l.date_end,
+ DATE_PART('month', l.date_end::date) mymonth,
+ DATE_PART('year', l.date_end::date) myyear
+
+FROM landing.cycle_context_cycle as l
+where cast(l.budget_spent as numeric) > cast(l.budget as numeric) AND  l.campaign_ref LIKE 'C%'
+ORDER BY date_end DESC
