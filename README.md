@@ -4,7 +4,9 @@ Incremental Processing Pipeline to power Aurora Postgres SQL from Hudi Transcati
 ![sa drawio (2)](https://user-images.githubusercontent.com/39345855/222936650-d637dad4-b0d8-464b-a587-9cc205749769.png)
 
 ### Watch the Video for hands on Lab
-#### Link XXXX
+#### Project Demo Video https://www.youtube.com/watch?v=Wy2I1PwIj2A&feature=youtu.be
+#### Deep Dive Video https://studio.youtube.com/video/sUuvpQ49Y00/edit
+
 
 
 * Let's explore how to create an incremental processing pipeline that powers downstream applications and systems from a transactional data lake. This will demonstrate how to use incremental batch processing to feed an Aurora Posgres SQL database from Hudi. With the help of incremental batch processing, we will load the CDC events into Aurora landing from  transactional datalake. From there, we'll DEDUP the data, clean it up, and enter the staging area.
