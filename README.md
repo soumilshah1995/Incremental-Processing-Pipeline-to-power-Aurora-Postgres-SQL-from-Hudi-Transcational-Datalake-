@@ -11,7 +11,6 @@ Incremental Processing Pipeline to power Aurora Postgres SQL from Hudi Transcati
 
 * Let's explore how to create an incremental processing pipeline that powers downstream applications and systems from a transactional data lake. This will demonstrate how to use incremental batch processing to feed an Aurora Posgres SQL database from Hudi. With the help of incremental batch processing, we will load the CDC events into Aurora landing from  transactional datalake. From there, we'll DEDUP the data, clean it up, and enter the staging area.
 
-* Let's explore how to create an incremental processing pipeline that powers downstream applications and systems from a transactional data lake. This will demonstrate how to use incremental batch processing to feed an Aurora Posgres SQL database from Hudi. With the help of incremental batch processing, we will load the CDC events into Aurora landing from  transactional datalake. From there, we'll DEDUP the data, clean it up, and enter the staging area.
 
 1.	Faster query processing: Incremental processing can speed up query processing by reducing the amount of data that needs to be processed. This can result in faster query response times and improved performance.
 
